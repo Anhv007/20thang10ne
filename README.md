@@ -46,15 +46,13 @@ Mở `garden.html` trực tiếp trong trình duyệt, chọn **Ngắm vườn h
 - Ảnh đã chọn chỉ có trên trình duyệt này, không tự chia sẻ sang thiết bị khác hoặc thay đổi tệp ảnh trong mã nguồn.
 
 
-Album gồm ba ô ảnh, mặc định dùng cùng một ảnh mẫu. Ngoài cách thay trực tiếp trên trang, có thể sửa ảnh mặc định trong mã nguồn để người khác mở trang cũng thấy ảnh của bạn:
+Album gồm ba ô ảnh, mặc định dùng ba ảnh riêng trong `assets/album-1.jpg`, `assets/album-2.jpg` và `assets/album-3.jpg`. Đổi ba đường dẫn `src` trong phần `memoryAlbum` ở `index.html` để thay ảnh mặc định mà mọi người mở trang đều thấy.
 
-1. Chép ảnh của bạn vào thư mục `assets`, ví dụ `assets/me.jpg`.
-2. Trong phần `memoryAlbum` ở `index.html`, đổi `src="./assets/portrait-placeholder.webp"` của từng ô ảnh thành đường dẫn tương ứng, ví dụ `src="./assets/me.jpg"`.
-3. Sửa `alt` và hai dòng chữ trong `figcaption` nếu muốn cá nhân hóa phần ảnh.
+Sửa `alt` và hai dòng chữ trong `figcaption` nếu muốn cá nhân hóa phần ảnh. Chữ ký mặc định của thiệp chính được đặt tại `defaultGreeting.sender` trong `card.js`; chữ ký của vườn hoa nằm trong `garden.html`.
 
 Khung ảnh dùng tỉ lệ 3:4 và tự cắt ảnh vừa khung. Có thể chỉnh `object-position` trong `.portrait-photo img` ở `style.css` để giữ khuôn mặt đúng vị trí.
 
-Ảnh mẫu `assets/portrait-placeholder.webp` (768 × 1024) được tạo bằng công cụ imagegen tích hợp; prompt cuối nằm trong `assets/portrait-prompt.txt`.
+Ảnh mẫu `assets/portrait-placeholder.webp` vẫn được giữ trong dự án làm ảnh dự phòng; prompt cuối nằm trong `assets/portrait-prompt.txt`.
 
 ## Các tệp
 
@@ -64,6 +62,7 @@ Khung ảnh dùng tỉ lệ 3:4 và tự cắt ảnh vừa khung. Có thể ch�
 - `card.js`: mở/đóng thiệp, chuyển bố cục, lời chúc và lưu nội dung cá nhân hóa.
 - `album.js`: thay, thu nhỏ, lưu ảnh album trên trình duyệt và khôi phục ảnh ban đầu.
 - `assets/portrait-placeholder.webp`: ảnh mẫu có thể thay thế.
+- `assets/album-1.jpg`, `assets/album-2.jpg`, `assets/album-3.jpg`: ảnh mặc định của album kỷ niệm.
 - `tests/layout.cjs`: kiểm tra hồi quy bố cục trên 11 kích thước màn hình, hoa căn giữa, album ẩn/hiện và xòe/gấp, thiệp dài và các tương tác. Chạy `node tests/layout.cjs` trong môi trường có Playwright (hoặc đặt `NODE_PATH` đến thư mục chứa Playwright đã cài).
 - `tests/album.cjs`: kiểm tra chọn ảnh, thu nhỏ, lưu và khôi phục riêng từng ảnh, tải lại trang, tệp không hợp lệ, bộ nhớ không khả dụng và bố cục chỉnh ảnh trên điện thoại. Chạy `node tests/album.cjs` với Playwright.
 
