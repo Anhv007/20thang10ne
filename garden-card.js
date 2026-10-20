@@ -45,7 +45,11 @@
     const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
     if (saved && Object.entries(inputs).every(([key, input]) =>
       typeof saved[key] === 'string' && saved[key].trim() && saved[key].length <= input.maxLength)) {
-      greeting = Object.fromEntries(Object.keys(inputs).map(key => [key, saved[key].trim()]));
+      greeting = Object.fromEntries(Object.keys(inputs).map(key => [
+        key,
+        key === 'signature' && saved[key].trim() === 'Gửi bạn thật nhiều thương mến ♡'
+          ? greeting.signature : saved[key].trim()
+      ]));
       renderGreeting();
     }
   } catch {
